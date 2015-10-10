@@ -114,10 +114,16 @@ def step_impl(context,num,elemid):
         raise NotImplementedError(u'STEP: Then the list contains a title Element')
 
 
-@given(u'I call png with text parameter')
-def step_impl(context):
-    context.nadej.png(context.text)
-
+@given(u'I call {method} with text parameter')
+def step_impl(context,method):
+    if method == "png":
+        context.nadej.png(context.text)
+    elif method == "text":
+        context.nadej.text(context.text)
+    elif method == "json":
+        context.nadej.json(context.text)
+    else:
+        assert False ,"Method does not exists"
 
 @then(u'the html result contains {nocare} "{domelem}" Element')
 def step_impl(context,domelem,nocare):
