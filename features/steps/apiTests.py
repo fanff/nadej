@@ -6,7 +6,7 @@ import json
 
 @given(u'I load the client API')
 def step_impl(context):
-    context.nadej = nadej.ClientAPI()
+    context.nadej = nadej.nadej.ClientAPI()
 
 @given(u'I load the native API')
 def step_impl(context):
@@ -40,17 +40,27 @@ def step_impl(context):
 
 @then(u'a call to .collect returns a python list')
 def step_impl(context):
-    res = nadej.collect()
-
+    res = context.nadej.collect()
+    context.nadej_collected = res
     assert isinstance(res,list)
 
+@then(u'the list size is {count}')
+def step_impl(context,count):
+
+    print(context.nadej_collected)
+    c = int(count)
+    assert len(context.nadej_collected) == c
 
 @given(u'I call {name} on the Nadej module')
 def step_impl(context,name):
     if name == "h1":
-        context.methodToCall = nadej.h1
+        context.methodToCall = context.nadej.h1
     elif name == "h2":
-        context.methodToCall = nadej.h2
+        context.methodToCall = context.nadej.h2
+    elif name == "title":
+        context.methodToCall = context.nadej.title
+    elif name == "png":
+        context.methodToCall = context.nadej.png
     
 @given(u'I use this parameter {parameter} on the method')
 def step_impl(context,parameter):
@@ -59,7 +69,30 @@ def step_impl(context,parameter):
 @then(u'a call to .collect returns {resultDic}')
 def step_impl(context,resultDic):
     resultDicPython = json.loads(resultDic)
-    res = nadej.collect()
+    res = context.nadej.collect()
+    context.nadej_collected = res
     assert resultDicPython == res
+
+@given(u'I call {method} with parameter "{someText}"')
+def step_impl(context,method,someText):
+    context.execute_steps("""
+        given I call %s on the Nadej module
+        given I use this parameter %s on the method
+    """%(method,someText))
+
+@then(u'the list contains {num} "{elemid}" Element')
+def step_impl(context,num,elemid):
+    
+    if num in ("a","an"):
+        print(context.nadej_collected)
+        for elem in context.nadej_collected:
+            if elem["type"] in elemid :
+                return True
+
+        # coming here means failure
+        assert False
+
+    else:
+        raise NotImplementedError(u'STEP: Then the list contains a title Element')
 
 

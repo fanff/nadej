@@ -4,8 +4,8 @@ Feature: Nadej provides a python api
         Given I load the native API
         Given this base method list
             | name | Description |
-            | h1   | Heading 1   |
             | title| Document Title |
+            | h1   | Heading 1   |
             | h2   | Heading 2   |
             | collect   | Flush result   |
 
@@ -14,6 +14,7 @@ Feature: Nadej provides a python api
         Then a call to .collect returns a python list
 
     Scenario Outline: Nadej define a python api that outputs standardised data dict
+        Given I load the native API
         Given I call <name> on the Nadej module 
         Given I use this parameter <parameter> on the method 
         Then a call to .collect returns <result>

@@ -1,9 +1,7 @@
 
 
-def ClientAPI():
-    return InnerData()
 
-class InnerData(object):
+class ClientAPI(object):
 
     dataList = []
 
@@ -38,11 +36,11 @@ class InnerData(object):
         ret = self.dataList
         self.dataList=[]
         return ret
+    def png(self,data):
+        """
+        """
+        dic = {"type":"img",
+               "form":"png",
+               "data":data}
+        self.dataList.append(dic)
 
-
-innerData = InnerData()
-
-h1=innerData.h1
-h2=innerData.h2
-title=innerData.title
-collect=innerData.collect
