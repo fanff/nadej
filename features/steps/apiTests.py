@@ -6,7 +6,10 @@ import json
 
 @given(u'I load the client API')
 def step_impl(context):
-    context.nadej = nadej.nadej.ClientAPI()
+    
+    newClient = nadej.nadej.ClientAPI()
+    context.nadej = newClient
+    assert len(context.nadej.dataList) == 0
 
 @given(u'I load the native API')
 def step_impl(context):
@@ -38,6 +41,11 @@ def step_impl(context):
 def step_impl(context):
     pass
 
+
+@then(u'the collect result is a unicode string')
+def step_impl(context):
+    assert isinstance(context.nadej_collected,unicode),"Should be unicode"
+
 @then(u'a call to .collect returns a python list')
 def step_impl(context):
     res = context.nadej.collect()
@@ -61,7 +69,10 @@ def step_impl(context,name):
         context.methodToCall = context.nadej.title
     elif name == "png":
         context.methodToCall = context.nadej.png
-    
+    elif name == "collect":
+        context.methodToCall = context.nadej.collect
+    else:
+        assert False,"No such method %s"%name
 @given(u'I use this parameter {parameter} on the method')
 def step_impl(context,parameter):
     context.methodToCall(parameter)
@@ -75,16 +86,23 @@ def step_impl(context,resultDic):
 
 @given(u'I call {method} with parameter "{someText}"')
 def step_impl(context,method,someText):
-    context.execute_steps("""
-        given I call %s on the Nadej module
-        given I use this parameter %s on the method
-    """%(method,someText))
+
+    if method == "collect":
+
+        res = context.nadej.collect(someText) 
+        context.nadej_collected=res
+    else:
+        context.execute_steps("""
+            given I call %s on the Nadej module
+            given I use this parameter %s on the method
+        """%(method,someText))
+
 
 @then(u'the list contains {num} "{elemid}" Element')
 def step_impl(context,num,elemid):
     
     if num in ("a","an"):
-        print(context.nadej_collected)
+        print("list contains",context.nadej_collected)
         for elem in context.nadej_collected:
             if elem["type"] in elemid :
                 return True
@@ -95,4 +113,28 @@ def step_impl(context,num,elemid):
     else:
         raise NotImplementedError(u'STEP: Then the list contains a title Element')
 
+
+@given(u'I call png with text parameter')
+def step_impl(context):
+    context.nadej.png(context.text)
+
+
+@then(u'the html result contains {nocare} "{domelem}" Element')
+def step_impl(context,domelem,nocare):
+    from bs4 import BeautifulSoup
+    print("src",context.nadej_collected)
+    soup = BeautifulSoup(context.nadej_collected, 'html.parser')
+    
+    res = soup.find_all(domelem)
+
+    print("lol",soup.prettify())
+    assert len(res) == 1
+
+@then(u'the html result contains {some} "{domelem}" Elements')
+def step_impl(context,some,domelem):
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(context.nadej_collected, 'html.parser')
+    
+    res = soup.find_all(domelem)
+    assert len(res) == int(some)
 
