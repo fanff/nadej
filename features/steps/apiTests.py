@@ -4,25 +4,35 @@ import json
 
 
 
+@given(u'I load the client API')
+def step_impl(context):
+    context.nadej = nadej.ClientAPI()
+
+@given(u'I load the native API')
+def step_impl(context):
+    context.nadej = nadej
+
 @given(u'this base method list')
 def step_impl(context):
     """
-
     * Mapping method names to actual method
     * Verify each method name is present in the dic
-
     """
     context.methodMap = {}
-    context.methodMap["h1"] = nadej.h1
-    context.methodMap["h2"] = nadej.h2
+    context.methodMap["h1"] = context.nadej.h1
+    context.methodMap["h2"] = context.nadej.h2
+    context.methodMap["collect"] = context.nadej.collect
+    context.methodMap["title"] = context.nadej.title
 
+    context.tablecontent = []
     for row in context.table:
-        context.methodMap["h1"] = nadej.h1
+        row["name"] in context.methodMap
+        context.tablecontent.append(row["name"])
 
-@when(u'we call each method on the api')
+@given(u'we call each method on the api')
 def step_impl(context):
-    for mname,meth in context.methodMap.items():
-        meth()
+    for name in context.tablecontent:
+         context.methodMap[name]()
 
 @then(u'it does not raise Exception')
 def step_impl(context):
@@ -51,6 +61,5 @@ def step_impl(context,resultDic):
     resultDicPython = json.loads(resultDic)
     res = nadej.collect()
     assert resultDicPython == res
-
 
 
