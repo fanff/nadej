@@ -9,6 +9,7 @@ def step_impl(context):
     
     newClient = nadej.nadej.ClientAPI()
     context.nadej = newClient
+    context.nadej_TestRegister = {}
     assert len(context.nadej.dataList) == 0
 
 @given(u'I load the native API')
@@ -125,6 +126,25 @@ def step_impl(context,method):
     else:
         assert False ,"Method does not exists"
 
+@given(u'I call {apimethod} with register {register}')
+def step_impl(context,apimethod,register):
+    method = apimethod
+
+    if method == "png":
+        context.nadej.png(context.nadej_TestRegister[register])
+    elif method == "text":
+        context.nadej.text(context.nadej_TestRegister[register])
+    elif method == "json":
+        context.nadej.json(context.nadej_TestRegister[register])
+    elif method == "table":
+        context.nadej.table(context.nadej_TestRegister[register])
+    elif method == "plot":
+        context.nadej.plot(context.nadej_TestRegister[register])
+    else:
+        assert False ,"Method does not exists"
+
+
+
 @then(u'the html result contains {nocare} "{domelem}" Element')
 def step_impl(context,domelem,nocare):
     from bs4 import BeautifulSoup
@@ -143,4 +163,15 @@ def step_impl(context,some,domelem):
     
     res = soup.find_all(domelem)
     assert len(res) == int(some)
+
+
+@given(u'I load a pandas frame from text csv in register {reg}')
+def step_impl(context,reg):
+    import pandas as pd
+    from StringIO import StringIO 
+
+
+    s = StringIO(context.text)
+    df = pd.read_csv(s)
+    context.nadej_TestRegister[reg] = df
 

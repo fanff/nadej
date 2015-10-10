@@ -1,6 +1,6 @@
 
 import os
-
+from StringIO import StringIO
 
 def htmlFormater(dataList):
     """
@@ -27,7 +27,11 @@ def htmlFormater(dataList):
 
 
 
-    return u"""<html>%s %s</html>"""%(
+    return u"""<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+%s 
+%s
+</html>"""%(
             headText,
             bodyText
             )
@@ -45,6 +49,14 @@ def htmlInlineFormater(dataList):
             bodyArray.append(res)
     return u" ".join(bodyArray)
 
+def htmlFormat_table(elem):
+    """
+    """
+    import pandas as pd
+    if elem["format"] == "pd.frame":
+        return elem["data"].to_html()
+    else:
+        raise Exception("elem format not supported %s"%(elem["format"]))
 def htmlFormat_title(elem):
     """
     """
@@ -85,6 +97,7 @@ HTMLFORMAT_DIC = {
         "img":htmlFormat_img,
         "p":htmlFormat_p,
         "code":htmlFormat_code,
+        "table":htmlFormat_table,
 
         }
 def savein(data,dest):
@@ -144,6 +157,49 @@ class ClientAPI(object):
                 "text":text}
         self.dataList.append(dic)
 
+    def table(self,data=""):
+        """
+        """
+        import pandas as pd
+        dic = {"type":"table",
+                "format":"pd.frame",
+                "data":data
+                }
+        self.dataList.append(dic)
+    def png(self,data):
+        """
+        data should be base64
+        """
+        dic = {"type":"img",
+               "format":"png",
+               "data":data}
+        self.dataList.append(dic)
+
+
+    def plot(self,data=""):
+        """
+        """
+        import pandas as pd
+
+        if isinstance(data,pd.DataFrame):
+            import matplotlib
+            matplotlib.use('Agg')
+            import matplotlib.pyplot as plt
+            plt.plot(data)
+            
+            plt.legend(data.columns)
+
+            bufferIMG = StringIO()
+            plt.savefig(bufferIMG)
+            from base64 import b64encode,b64decode
+
+            buffer64 = b64encode(bufferIMG.getvalue())
+
+            self.png(buffer64)
+
+        else:
+            raise Exception("not supported yet")
+
     def collect(self,outpipe=""):
         """
         """
@@ -167,13 +223,4 @@ class ClientAPI(object):
                 raise Exception("pipe error at step %s"%step)
 
         return ret
-
-    def png(self,data):
-        """
-        data should be base64
-        """
-        dic = {"type":"img",
-               "format":"png",
-               "data":data}
-        self.dataList.append(dic)
 
