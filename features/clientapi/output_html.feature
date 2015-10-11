@@ -1,4 +1,4 @@
-Feature: Nadej produce html
+Feature: Nadej produces simple html pages
 
     Scenario Outline: Produce html with multiple elements
         such as h1, h2, titles etc.. . Html can be written 

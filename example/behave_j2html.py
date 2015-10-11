@@ -12,7 +12,7 @@ def elementMatcher(elem):
         return scenario(elem)
     elif elem["keyword"] == "Scenario Outline":
         return scenarioOL(elem) 
-    elif elem["keyword"] in ["Given","Then"]:
+    elif elem["keyword"] in ["Given","Then","And"]:
         return given_then(elem) 
     else:
         raise Exception ("keyword not supported : %s"%elem['keyword'])
@@ -53,7 +53,7 @@ def main(args):
     
     for elem in injson:
         elementMatcher(elem)
-    inhtml = nadej.collect("html:save in %s"%args.output)
+    inhtml = nadej.collect("html_bs:save in %s"%args.output)
 
     # print 
 
