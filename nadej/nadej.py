@@ -120,13 +120,15 @@ class ClientAPI(object):
             elif step == "htmlinline":
                 ret= htmlInlineFormater(ret)
             elif step == "html_bs":
+                
+                
                 ret= htmlBootstrapFormater(ret)
             elif step.startswith("save in "):
                 dest = step.split(" ")[-1]
                 savein(ret,dest)
 
             else:
-                raise Exception("pipe error at step %s"%step)
+                raise Exception("pipe step not found: %s"%step)
 
         return ret
 

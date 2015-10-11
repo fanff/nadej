@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+import os
 def htmlFormater(dataList):
     """
 
@@ -126,10 +127,10 @@ def htmlBootstrapFormater(dataList):
     """
     """
     from jinja2 import Template,Environment,PackageLoader
+    #print os.path.realpath(__file__)
     env=Environment(loader=PackageLoader('nadej','templates'))
     
     env.filters['pdframetotable'] = pdframetotable_bs
-
     template = env.get_template('bootstraped.html')
     
     djson = json.dumps(dataList,indent=2,cls=JsonEscaper)
