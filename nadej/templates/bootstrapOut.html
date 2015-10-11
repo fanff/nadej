@@ -6,7 +6,9 @@
 <p>{{elem.text}}</p>
 {% elif elem.type == 'img' %}
 <a href="#" class="thumbnail">
-  <img src="data:image/png;base64,{{elem.data}}" alt="Embedded Image">
+<div class="img-hover">
+  <img class="img-responsive img-rounded" src="data:image/png;base64,{{elem.data}}" alt="Embedded Image">
+</div>
 </a>
 {% elif elem.type == 'code' %}
 <p>type: {{elem.format}}<p>
