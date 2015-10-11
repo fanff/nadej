@@ -1,14 +1,13 @@
 Feature: Nadej produce bootstrap formated pages
+    
     @work
     Scenario Outline: Produce html bootstraped 
         with multiple elements
         Given I load the client API
         Given I call title with parameter "Title string"
-        Given I call h1 with parameter "Firt part"
-        Given I call text with text parameter 
-        """
-        Showing some features
-        """
+        Given I call h1 with parameter "Showing some features"
+        Given I call text with 7 random sentences
+        Given I call text with 12 random sentences
         Given I call h2 with parameter "Drawing image"
         Given I call text with text parameter 
         """
@@ -22,6 +21,7 @@ Feature: Nadej produce bootstrap formated pages
         SUVORK5CYII=
         """
         Given I call h2 with parameter "Some json"
+        Given I call text with 5 random sentences
         Given I call json with text parameter 
         """
         {"lfsk":"mfldsq"}
@@ -54,15 +54,36 @@ Feature: Nadej produce bootstrap formated pages
         3   , 2   , 1
         """
         Given I call table with register df
-        Given I call h2 with parameter "as plot"
+        Given I call h2 with parameter "Ploting data"
+        Given I call text with 3 random sentences
         Given I call plot with register df
+
+        Given I call h2 with parameter "spliting page"
+
+        Given I call split with parameter "vsplit"
+        Given I call text with 3 random sentences
+        Given I call plot with register df
+        Given I call then
+        Given I call text with 3 random sentences
+        Given I call text with parameter "also in second column"
+        Given I call table with register df
+        Given I call then
+        Given I call text with 3 random sentences
+        Given I call json with text parameter 
+        """
+        {"this":"is",
+        "another":"dic"}
+        """
+        Given I call split with parameter "end"
+
+
         Given I call collect with parameter "<collectpipe>"
         Then the collect result is a unicode string
-        Then the html result contains 2 "img" Elements
 
         Examples: Bootstrap html 
             | collectpipe                    | 
-            | html_bs:save in lol2.html      | 
+            | html_bs:save in testResult/output_bs.html      | 
+            | html_bs_inline| 
         
             
 

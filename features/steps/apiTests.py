@@ -38,6 +38,17 @@ def step_impl(context):
     for name in context.tablecontent:
          context.methodMap[name]()
 
+@given(u'I call text with {amount} random sentences')
+def step_impl(context,amount):
+    from loremipsum import get_sentences
+
+    sentences_list = get_sentences(int(amount))
+    text = u"".join(sentences_list)
+
+    context.nadej.text(text)
+
+
+
 @then(u'it does not raise Exception')
 def step_impl(context):
     pass
@@ -55,10 +66,18 @@ def step_impl(context):
 
 @then(u'the list size is {count}')
 def step_impl(context,count):
-
+    """
+    Verify the length of the last collected list 
+    """
     print(context.nadej_collected)
     c = int(count)
     assert len(context.nadej_collected) == c
+
+
+
+@given(u'I call then')
+def step_impl(context):
+    context.methodToCall = context.nadej.then()
 
 @given(u'I call {name} on the Nadej module')
 def step_impl(context,name):
@@ -72,6 +91,10 @@ def step_impl(context,name):
         context.methodToCall = context.nadej.png
     elif name == "collect":
         context.methodToCall = context.nadej.collect
+    elif name == "split":
+        context.methodToCall = context.nadej.split
+    elif name == "text":
+        context.methodToCall = context.nadej.text
     else:
         assert False,"No such method %s"%name
 @given(u'I use this parameter {parameter} on the method')
@@ -89,7 +112,6 @@ def step_impl(context,resultDic):
 def step_impl(context,method,someText):
 
     if method == "collect":
-
         res = context.nadej.collect(someText) 
         context.nadej_collected=res
     else:

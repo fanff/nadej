@@ -9,10 +9,30 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>No Title</title>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+    </script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -46,863 +66,692 @@
 
       
         
+<h1>Nadej transform it own test report to bootstrap html</h1>
+   
       
-      <h1>Nadej transform it own test report to bootstrap html</h1>
-      
-      
         
+<p>in features/ZdocTest.feature:2</p>
+   
       
-      <p>in features/ZdocTest.feature:2</p>
-      
-      
         
-      
-      <p>tags : [u'metadej']</p>
+<p>tags : [u'metadej']</p>
+   
       
-      
         
-      
-      <h2>Produce nadej report to html</h2>
+<h2>Produce nadej report to html</h2>
+   
       
-      
         
-      
-      <p>sc in features/ZdocTest.feature:4</p>
-      
+<p>sc in features/ZdocTest.feature:4</p>
+   
       
         
+<p>The file "nadej_behave_out.json" exists</p>
+   
       
-      <p>The file "nadej_behave_out.json" exists</p>
-      
-      
         
+<p>I call "python example/behave_j2html.py nadej_behave_out.json nadej_behave_out.html"</p>
+   
       
-      <p>I call "python example/behave_j2html.py nadej_behave_out.json nadej_behave_out.html"</p>
-      
-      
         
-      
-      <p>The file "nadej_behave_out.html" exists</p>
+<p>The file "nadej_behave_out.html" exists</p>
+   
       
-      
         
-      
-      <h1>Nadej provides a python api</h1>
-      
+<h1>Nadej provides a python api</h1>
+   
       
         
+<p>in features/nadej.feature:1</p>
+   
       
-      <p>in features/nadej.feature:1</p>
-      
-      
         
-      
-      <p>tags : []</p>
+<p>tags : []</p>
+   
       
-      
         
-      
-      <h2>Nadej define a python api for writing document elements</h2>
+<h2>Nadej define a python api for writing document elements</h2>
+   
       
-      
         
-      
-      <p>sc in features/nadej.feature:3</p>
-      
+<p>sc in features/nadej.feature:3</p>
+   
       
         
+<p>I load the native API</p>
+   
       
-      <p>I load the native API</p>
-      
-      
         
+<p>this base method list</p>
+   
       
-      <p>this base method list</p>
-      
-      
         
-      
-      <p>we call each method on the api</p>
+<p>we call each method on the api</p>
+   
       
-      
         
-      
-      <p>it does not raise Exception</p>
+<p>it does not raise Exception</p>
+   
       
-      
         
-      
-      <p>a call to .collect returns a python list</p>
-      
+<p>a call to .collect returns a python list</p>
+   
       
         
+<h2>Nadej define a python api that outputs standardised data dict -- @1.1 Heading 1</h2>
+   
       
-      <h2>Nadej define a python api that outputs standardised data dict -- @1.1 Heading 1</h2>
-      
-      
         
-      
-      <p>sc in features/nadej.feature:24</p>
+<p>sc in features/nadej.feature:24</p>
+   
       
-      
         
-      
-      <p>I load the native API</p>
-      
+<p>I load the native API</p>
+   
       
         
+<p>I call h1 on the Nadej module</p>
+   
       
-      <p>I call h1 on the Nadej module</p>
-      
-      
         
+<p>I use this parameter test! on the method</p>
+   
       
-      <p>I use this parameter test! on the method</p>
-      
-      
         
-      
-      <p>a call to .collect returns [{"type":"h1","text":"test!"}]</p>
+<p>a call to .collect returns [{"type":"h1","text":"test!"}]</p>
+   
       
-      
         
-      
-      <h2>Nadej define a python api that outputs standardised data dict -- @1.2 Heading 1</h2>
+<h2>Nadej define a python api that outputs standardised data dict -- @1.2 Heading 1</h2>
+   
       
-      
         
-      
-      <p>sc in features/nadej.feature:25</p>
-      
+<p>sc in features/nadej.feature:25</p>
+   
       
         
+<p>I load the native API</p>
+   
       
-      <p>I load the native API</p>
-      
-      
         
+<p>I call h1 on the Nadej module</p>
+   
       
-      <p>I call h1 on the Nadej module</p>
-      
-      
         
-      
-      <p>I use this parameter lol on the method</p>
+<p>I use this parameter lol on the method</p>
+   
       
-      
         
-      
-      <p>a call to .collect returns [{"type":"h1","text":"lol"}]</p>
-      
+<p>a call to .collect returns [{"type":"h1","text":"lol"}]</p>
+   
       
         
+<h2>Nadej define a python api that outputs standardised data dict -- @2.1 Heading 2</h2>
+   
       
-      <h2>Nadej define a python api that outputs standardised data dict -- @2.1 Heading 2</h2>
-      
-      
         
-      
-      <p>sc in features/nadej.feature:29</p>
+<p>sc in features/nadej.feature:29</p>
+   
       
-      
         
-      
-      <p>I load the native API</p>
+<p>I load the native API</p>
+   
       
-      
         
-      
-      <p>I call h2 on the Nadej module</p>
-      
+<p>I call h2 on the Nadej module</p>
+   
       
         
+<p>I use this parameter test! on the method</p>
+   
       
-      <p>I use this parameter test! on the method</p>
-      
-      
         
-      
-      <p>a call to .collect returns [{"type":"h2","text":"test!"}]</p>
+<p>a call to .collect returns [{"type":"h2","text":"test!"}]</p>
+   
       
-      
         
-      
-      <h1>Nadej provides a client API that</h1>
-      
+<h1>Nadej provides a client API that</h1>
+   
       
         
+<p>in features/clientapi/clientapi.feature:1</p>
+   
       
-      <p>in features/clientapi/clientapi.feature:1</p>
-      
-      
         
+<p>tags : []</p>
+   
       
-      <p>tags : []</p>
-      
-      
         
-      
-      <h2>Nadej can manipulate Title</h2>
+<h2>Nadej can manipulate Title</h2>
+   
       
-      
         
-      
-      <p>sc in features/clientapi/clientapi.feature:7</p>
-      
+<p>sc in features/clientapi/clientapi.feature:7</p>
+   
       
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call title with parameter "Title"</p>
+<p>I call title with parameter "Title"</p>
+   
       
-      
         
-      
-      <p>a call to .collect returns a python list</p>
+<p>a call to .collect returns a python list</p>
+   
       
-      
         
-      
-      <p>the list size is 1</p>
-      
+<p>the list size is 1</p>
+   
       
         
+<p>the list contains a "title" Element</p>
+   
       
-      <p>the list contains a "title" Element</p>
-      
-      
         
+<h2>Nadej can stay quiet</h2>
+   
       
-      <h2>Nadej can stay quiet</h2>
-      
-      
         
-      
-      <p>sc in features/clientapi/clientapi.feature:14</p>
+<p>sc in features/clientapi/clientapi.feature:14</p>
+   
       
-      
         
-      
-      <p>I load the client API</p>
+<p>I load the client API</p>
+   
       
-      
         
-      
-      <p>a call to .collect returns a python list</p>
-      
+<p>a call to .collect returns a python list</p>
+   
       
         
+<p>the list size is 0</p>
+   
       
-      <p>the list size is 0</p>
-      
-      
         
-      
-      <h2>Nadej can manipulate Png Images</h2>
+<h2>Nadej can manipulate Png Images</h2>
+   
       
-      
         
-      
-      <p>sc in features/clientapi/clientapi.feature:19</p>
-      
+<p>sc in features/clientapi/clientapi.feature:19</p>
+   
       
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
+<p>I call png with parameter "Title"</p>
+   
       
-      <p>I call png with parameter "Title"</p>
-      
-      
         
-      
-      <p>a call to .collect returns a python list</p>
+<p>a call to .collect returns a python list</p>
+   
       
-      
         
-      
-      <p>the list size is 1</p>
-      
+<p>the list size is 1</p>
+   
       
         
+<p>the list contains an "img" Element</p>
+   
       
-      <p>the list contains an "img" Element</p>
-      
-      
         
-      
-      <h1>Nadej can output pandas dataframe as plot or tables</h1>
+<h1>Nadej can output pandas dataframe as plot or tables</h1>
+   
       
-      
         
-      
-      <p>in features/clientapi/integrate_pandas.feature:1</p>
+<p>in features/clientapi/integrate_pandas.feature:1</p>
+   
       
-      
         
-      
-      <p>tags : []</p>
-      
+<p>tags : []</p>
+   
       
         
+<h2>Simple pandas frame handling -- @1.1 Some outputs</h2>
+   
       
-      <h2>Simple pandas frame handling -- @1.1 Some outputs</h2>
-      
-      
         
-      
-      <p>sc in features/clientapi/integrate_pandas.feature:36</p>
+<p>sc in features/clientapi/integrate_pandas.feature:36</p>
+   
       
-      
         
-      
-      <p>I load the client API</p>
-      
+<p>I load the client API</p>
+   
       
         
+<p>I call h1 with parameter "Showing some pandas integration"</p>
+   
       
-      <p>I call h1 with parameter "Showing some pandas integration"</p>
-      
-      
         
+<p>I load a pandas frame from text csv in register df</p>
+   
       
-      <p>I load a pandas frame from text csv in register df</p>
-      
-      
         
-      
-      <p>I call h2 with parameter "as table"</p>
+<p>I call h2 with parameter "as table"</p>
+   
       
-      
         
-      
-      <p>I call table with register df</p>
+<p>I call table with register df</p>
+   
       
-      
         
-      
-      <p>I call h2 with parameter "as plot"</p>
-      
+<p>I call h2 with parameter "as plot"</p>
+   
       
         
+<p>I call plot with register df</p>
+   
       
-      <p>I call plot with register df</p>
-      
-      
         
+<p>I call collect with parameter "html"</p>
+   
       
-      <p>I call collect with parameter "html"</p>
-      
-      
         
-      
-      <h2>Simple pandas frame handling -- @1.2 Some outputs</h2>
+<h2>Simple pandas frame handling -- @1.2 Some outputs</h2>
+   
       
-      
         
-      
-      <p>sc in features/clientapi/integrate_pandas.feature:37</p>
-      
+<p>sc in features/clientapi/integrate_pandas.feature:37</p>
+   
       
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call h1 with parameter "Showing some pandas integration"</p>
+<p>I call h1 with parameter "Showing some pandas integration"</p>
+   
       
-      
         
-      
-      <p>I load a pandas frame from text csv in register df</p>
+<p>I load a pandas frame from text csv in register df</p>
+   
       
-      
         
-      
-      <p>I call h2 with parameter "as table"</p>
-      
+<p>I call h2 with parameter "as table"</p>
+   
       
         
+<p>I call table with register df</p>
+   
       
-      <p>I call table with register df</p>
-      
-      
         
-      
-      <p>I call h2 with parameter "as plot"</p>
+<p>I call h2 with parameter "as plot"</p>
+   
       
-      
         
-      
-      <p>I call plot with register df</p>
-      
+<p>I call plot with register df</p>
+   
       
         
+<p>I call collect with parameter "html:save in lol2.html"</p>
+   
       
-      <p>I call collect with parameter "html:save in lol2.html"</p>
-      
-      
         
+<h1>Nadej produces simple html pages</h1>
+   
       
-      <h1>Nadej produces simple html pages</h1>
-      
-      
         
-      
-      <p>in features/clientapi/output_html.feature:1</p>
+<p>in features/clientapi/output_html.feature:1</p>
+   
       
-      
         
-      
-      <p>tags : []</p>
-      
+<p>tags : []</p>
+   
       
         
+<h2>Produce html with multiple elements -- @1.1 Embbeded html</h2>
+   
       
-      <h2>Produce html with multiple elements -- @1.1 Embbeded html</h2>
-      
-      
         
-      
-      <p>sc in features/clientapi/output_html.feature:36</p>
+<p>sc in features/clientapi/output_html.feature:36</p>
+   
       
-      
         
-      
-      <p>I load the client API</p>
+<p>I load the client API</p>
+   
       
-      
         
-      
-      <p>I call title with parameter "Title string"</p>
-      
+<p>I call title with parameter "Title string"</p>
+   
       
         
+<p>I call h1 with parameter "Firt part"</p>
+   
       
-      <p>I call h1 with parameter "Firt part"</p>
-      
-      
         
+<p>I call h2 with parameter "below some image"</p>
+   
       
-      <p>I call h2 with parameter "below some image"</p>
-      
-      
         
-      
-      <p>I call text with text parameter</p>
+<p>I call text with text parameter</p>
+   
       
-      
         
-      
-      <p>I call png with text parameter</p>
+<p>I call png with text parameter</p>
+   
       
-      
         
-      
-      <p>I call json with text parameter</p>
-      
+<p>I call json with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "end doc ?"</p>
+   
       
-      <p>I call h2 with parameter "end doc ?"</p>
-      
-      
         
-      
-      <p>I call collect with parameter "html"</p>
+<p>I call collect with parameter "html"</p>
+   
       
-      
         
-      
-      <p>the collect result is a unicode string</p>
-      
+<p>the collect result is a unicode string</p>
+   
       
         
+<p>the html result contains an "img" Element</p>
+   
       
-      <p>the html result contains an "img" Element</p>
-      
-      
         
+<p>the html result contains 2 "h2" Elements</p>
+   
       
-      <p>the html result contains 2 "h2" Elements</p>
-      
-      
         
-      
-      <p>the html result contains an "h1" Element</p>
+<p>the html result contains an "h1" Element</p>
+   
       
-      
         
-      
-      <p>the html result contains an "p" Element</p>
+<p>the html result contains an "p" Element</p>
+   
       
-      
         
-      
-      <h2>Produce html with multiple elements -- @1.2 Embbeded html</h2>
-      
+<h2>Produce html with multiple elements -- @1.2 Embbeded html</h2>
+   
       
         
+<p>sc in features/clientapi/output_html.feature:37</p>
+   
       
-      <p>sc in features/clientapi/output_html.feature:37</p>
-      
-      
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call title with parameter "Title string"</p>
+<p>I call title with parameter "Title string"</p>
+   
       
-      
         
-      
-      <p>I call h1 with parameter "Firt part"</p>
-      
+<p>I call h1 with parameter "Firt part"</p>
+   
       
         
+<p>I call h2 with parameter "below some image"</p>
+   
       
-      <p>I call h2 with parameter "below some image"</p>
-      
-      
         
-      
-      <p>I call text with text parameter</p>
+<p>I call text with text parameter</p>
+   
       
-      
         
-      
-      <p>I call png with text parameter</p>
+<p>I call png with text parameter</p>
+   
       
-      
         
-      
-      <p>I call json with text parameter</p>
-      
+<p>I call json with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "end doc ?"</p>
+   
       
-      <p>I call h2 with parameter "end doc ?"</p>
-      
-      
         
+<p>I call collect with parameter "html:save in lol2.html"</p>
+   
       
-      <p>I call collect with parameter "html:save in lol2.html"</p>
-      
-      
         
-      
-      <p>the collect result is a unicode string</p>
+<p>the collect result is a unicode string</p>
+   
       
-      
         
-      
-      <p>the html result contains an "img" Element</p>
+<p>the html result contains an "img" Element</p>
+   
       
-      
         
-      
-      <p>the html result contains 2 "h2" Elements</p>
-      
+<p>the html result contains 2 "h2" Elements</p>
+   
       
         
+<p>the html result contains an "h1" Element</p>
+   
       
-      <p>the html result contains an "h1" Element</p>
-      
-      
         
-      
-      <p>the html result contains an "p" Element</p>
+<p>the html result contains an "p" Element</p>
+   
       
-      
         
-      
-      <h2>Produce html with multiple elements -- @2.1 Inline html</h2>
-      
+<h2>Produce html with multiple elements -- @2.1 Inline html</h2>
+   
       
         
+<p>sc in features/clientapi/output_html.feature:41</p>
+   
       
-      <p>sc in features/clientapi/output_html.feature:41</p>
-      
-      
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call title with parameter "Title string"</p>
+<p>I call title with parameter "Title string"</p>
+   
       
-      
         
-      
-      <p>I call h1 with parameter "Firt part"</p>
-      
+<p>I call h1 with parameter "Firt part"</p>
+   
       
         
+<p>I call h2 with parameter "below some image"</p>
+   
       
-      <p>I call h2 with parameter "below some image"</p>
-      
-      
         
-      
-      <p>I call text with text parameter</p>
+<p>I call text with text parameter</p>
+   
       
-      
         
-      
-      <p>I call png with text parameter</p>
+<p>I call png with text parameter</p>
+   
       
-      
         
-      
-      <p>I call json with text parameter</p>
-      
+<p>I call json with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "end doc ?"</p>
+   
       
-      <p>I call h2 with parameter "end doc ?"</p>
-      
-      
         
-      
-      <p>I call collect with parameter "htmlinline"</p>
+<p>I call collect with parameter "htmlinline"</p>
+   
       
-      
         
-      
-      <p>the collect result is a unicode string</p>
-      
+<p>the collect result is a unicode string</p>
+   
       
         
+<p>the html result contains an "img" Element</p>
+   
       
-      <p>the html result contains an "img" Element</p>
-      
-      
         
+<p>the html result contains 2 "h2" Elements</p>
+   
       
-      <p>the html result contains 2 "h2" Elements</p>
-      
-      
         
-      
-      <p>the html result contains an "h1" Element</p>
+<p>the html result contains an "h1" Element</p>
+   
       
-      
         
-      
-      <p>the html result contains an "p" Element</p>
+<p>the html result contains an "p" Element</p>
+   
       
-      
         
-      
-      <h2>Produce html with multiple elements -- @2.2 Inline html</h2>
-      
+<h2>Produce html with multiple elements -- @2.2 Inline html</h2>
+   
       
         
+<p>sc in features/clientapi/output_html.feature:42</p>
+   
       
-      <p>sc in features/clientapi/output_html.feature:42</p>
-      
-      
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call title with parameter "Title string"</p>
+<p>I call title with parameter "Title string"</p>
+   
       
-      
         
-      
-      <p>I call h1 with parameter "Firt part"</p>
-      
+<p>I call h1 with parameter "Firt part"</p>
+   
       
         
+<p>I call h2 with parameter "below some image"</p>
+   
       
-      <p>I call h2 with parameter "below some image"</p>
-      
-      
         
-      
-      <p>I call text with text parameter</p>
+<p>I call text with text parameter</p>
+   
       
-      
         
-      
-      <p>I call png with text parameter</p>
+<p>I call png with text parameter</p>
+   
       
-      
         
-      
-      <p>I call json with text parameter</p>
-      
+<p>I call json with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "end doc ?"</p>
+   
       
-      <p>I call h2 with parameter "end doc ?"</p>
-      
-      
         
-      
-      <p>I call collect with parameter "htmlinline:save in lol.html"</p>
+<p>I call collect with parameter "htmlinline:save in lol.html"</p>
+   
       
-      
         
-      
-      <p>the collect result is a unicode string</p>
-      
+<p>the collect result is a unicode string</p>
+   
       
         
+<p>the html result contains an "img" Element</p>
+   
       
-      <p>the html result contains an "img" Element</p>
-      
-      
         
+<p>the html result contains 2 "h2" Elements</p>
+   
       
-      <p>the html result contains 2 "h2" Elements</p>
-      
-      
         
-      
-      <p>the html result contains an "h1" Element</p>
+<p>the html result contains an "h1" Element</p>
+   
       
-      
         
-      
-      <p>the html result contains an "p" Element</p>
-      
+<p>the html result contains an "p" Element</p>
+   
       
         
+<h1>Nadej produce bootstrap formated pages</h1>
+   
       
-      <h1>Nadej produce bootstrap formated pages</h1>
-      
-      
         
-      
-      <p>in features/clientapi/output_html_bs.feature:1</p>
+<p>in features/clientapi/output_html_bs.feature:1</p>
+   
       
-      
         
-      
-      <p>tags : []</p>
+<p>tags : []</p>
+   
       
-      
         
-      
-      <h2>Produce html bootstraped -- @1.1 Bootstrap html</h2>
-      
+<h2>Produce html bootstraped -- @1.1 Bootstrap html</h2>
+   
       
         
+<p>sc in features/clientapi/output_html_bs.feature:65</p>
+   
       
-      <p>sc in features/clientapi/output_html_bs.feature:65</p>
-      
-      
         
+<p>I load the client API</p>
+   
       
-      <p>I load the client API</p>
-      
-      
         
-      
-      <p>I call title with parameter "Title string"</p>
+<p>I call title with parameter "Title string"</p>
+   
       
-      
         
-      
-      <p>I call h1 with parameter "Firt part"</p>
+<p>I call h1 with parameter "Firt part"</p>
+   
       
-      
         
-      
-      <p>I call text with text parameter</p>
-      
+<p>I call text with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "Drawing image"</p>
+   
       
-      <p>I call h2 with parameter "Drawing image"</p>
-      
-      
         
-      
-      <p>I call text with text parameter</p>
+<p>I call text with text parameter</p>
+   
       
-      
         
-      
-      <p>I call png with text parameter</p>
-      
+<p>I call png with text parameter</p>
+   
       
         
+<p>I call h2 with parameter "Some json"</p>
+   
       
-      <p>I call h2 with parameter "Some json"</p>
-      
-      
         
+<p>I call json with text parameter</p>
+   
       
-      <p>I call json with text parameter</p>
-      
-      
         
-      
-      <p>I call h2 with parameter "Example for table"</p>
+<p>I call h2 with parameter "Example for table"</p>
+   
       
-      
         
-      
-      <p>I call text with text parameter</p>
-      
+<p>I call text with text parameter</p>
+   
       
         
+<p>I load a pandas frame from text csv in register df</p>
+   
       
-      <p>I load a pandas frame from text csv in register df</p>
-      
-      
         
-      
-      <p>I call table with register df</p>
+<p>I call table with register df</p>
+   
       
-      
         
-      
-      <p>I call h2 with parameter "as plot"</p>
+<p>I call h2 with parameter "as plot"</p>
+   
       
-      
         
-      
-      <p>I call plot with register df</p>
-      
+<p>I call plot with register df</p>
+   
       
         
+<p>I call collect with parameter "html_bs:save in lol2.html"</p>
+   
       
-      <p>I call collect with parameter "html_bs:save in lol2.html"</p>
-      
-      
         
-      
-      <p>the collect result is a unicode string</p>
+<p>the collect result is a unicode string</p>
+   
       
-      
         
-      
-      <p>the html result contains 2 "img" Elements</p>
-      
+<p>the html result contains 2 "img" Elements</p>
+   
       
     </div><!-- /.container -->
 
-      <pre>[
+    <pre><code class="json">[
   {
     "text": "Nadej transform it own test report to bootstrap html", 
     "type": "h1"
@@ -1587,15 +1436,7 @@
     "text": "the html result contains 2 \"img\" Elements", 
     "type": "p"
   }
-]</pre>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+]</code></pre>
 
 
   </body>

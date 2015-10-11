@@ -117,22 +117,25 @@ def pdframetotable_bs(df):
     table = soup.find_all("table")[0]
 
     res = soup.find_all("table")[0]
-    newclassset = res["class"]+['table panel-body']
+    newclassset = res["class"]+['table table-bordered table-condensed table-hover']
 
     res["class"] = newclassset
     return soup.prettify()
 
 
-def htmlBootstrapFormater(dataList):
+def htmlBootstrapFormater(dataList,inline=False):
     """
     """
     from jinja2 import Template,Environment,PackageLoader
     #print os.path.realpath(__file__)
     env=Environment(loader=PackageLoader('nadej','templates'))
-    
     env.filters['pdframetotable'] = pdframetotable_bs
-    template = env.get_template('bootstraped.html')
     
+    if inline:
+        template = env.get_template('bsinlined.html')
+    else:
+        template = env.get_template('bootstraped.html')
+        
     djson = json.dumps(dataList,indent=2,cls=JsonEscaper)
     
     title = u"No Title"

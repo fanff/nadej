@@ -9,10 +9,30 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>{{meta.title}}</title>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+    </script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -45,44 +65,11 @@
       </div>
 
       {% for elem in d %}
-        
-      {% if elem.type == 'h1' %}
-      <h1>{{elem.text}}</h1>
-      {% elif elem.type == 'h2' %}
-      <h2>{{elem.text}}</h2>
-      {% elif elem.type == 'p' %}
-      <p>{{elem.text}}</p>
-      {% elif elem.type == 'img' %}
-      <a href="#" class="thumbnail">
-        <img src="data:image/png;base64,{{elem.data}}" alt="Embedded Image">
-      </a>
-      {% elif elem.type == 'code' %}
-      <p>formated as {{elem.format}}<p>
-      <pre>{{ elem.text }}</pre>
-      
-      {% elif elem.type == 'table' %}
-        {% if elem.format == 'pd.frame' %}
-      {{elem.data|pdframetotable}}
-        {% endif %}
-      
-      
-      
-      {% elif elem.type == 'title' %}
-      {% else %}
-      <h1> NOT FOUND type : {{elem.type}}</h1>
-      {% endif %}
+        {% include "bootstrapOut.html" with context %}   
       {% endfor %}
     </div><!-- /.container -->
 
-      <pre>{{ djson }}</pre>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <pre><code class="json">{{ djson }}</code></pre>
 
 
   </body>

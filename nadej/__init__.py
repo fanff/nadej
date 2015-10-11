@@ -9,3 +9,5 @@ title=innerData.title
 text=innerData.text
 table=innerData.table
 collect=innerData.collect
+then=innerData.then
+split=innerData.split
