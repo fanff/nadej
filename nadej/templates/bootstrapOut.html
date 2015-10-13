@@ -2,6 +2,10 @@
 <h1>{{elem.text}}</h1>
 {% elif elem.type == 'h2' %}
 <h2>{{elem.text}}</h2>
+{% elif elem.type == 'h3' %}
+<h3>{{elem.text}}</h3>
+{% elif elem.type == 'h4' %}
+<h4>{{elem.text}}</h4>
 {% elif elem.type == 'p' %}
 <p>{{elem.text}}</p>
 {% elif elem.type == 'img' %}
@@ -11,7 +15,6 @@
 </div>
 </a>
 {% elif elem.type == 'code' %}
-<p>type: {{elem.format}}<p>
 <pre><code class="{{elem.format}}">{{ elem.text }}</code></pre>
 
 {% elif elem.type == 'table' %}

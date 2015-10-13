@@ -138,17 +138,14 @@ def htmlBootstrapFormater(dataList,inline=False):
         
     djson = json.dumps(dataList,indent=2,cls=JsonEscaper)
     
-    title = u"No Title"
-    
-    # title is going to meta
+    meta={
+        "title":u"No Title",
+        "lead":u""
+    }
     for elem in dataList:
         if elem["type"] == "title":
-            title=elem["text"]
+            meta["title"]=elem["text"]
 
-    meta={
-            "title":title,
-            "lead":u""
-            }
     return template.render(d=dataList,djson=djson,meta=meta)
 
 

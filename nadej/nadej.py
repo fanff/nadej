@@ -51,11 +51,37 @@ class ClientAPI(object):
         dic = {"type":"h2",
                 "text":text}
         self.dataList.append(dic)
+    def h3(self,text=""):
+        """
+        """
+        dic = {"type":"h3",
+                "text":text}
+        self.dataList.append(dic)
+    def h4(self,text=""):
+        """
+        """
+        dic = {"type":"h4",
+                "text":text}
+        self.dataList.append(dic)
+    
+    #def prst(self,text=""):
+    #    """
+    #    Insert rst paragraph rst with be translated in html.
+    #    """
+    #    dic = {"type":"h3",
+    #            "text":text}
+    #    self.dataList.append(dic)
+    
+    def precode(self,text="",formt=""):
+        """
+        Insert preformated code section
+        """
+        dic = {"type":"code",
+            "format":formt,
+            "text":text}
+        self.dataList.append(dic)
 
     def json(self,text=""):
-        dic = {"type":"code",
-                "format":"json",
-                "text":text}
         if isinstance(text,dict):
             dic = {"type":"code",
                 "format":"json",
@@ -108,6 +134,21 @@ class ClientAPI(object):
             for col in data:
                 plt.plot(data.index,data[col],label=col)
 
+            plt.legend()
+
+            bufferIMG = StringIO()
+            plt.savefig(bufferIMG)
+            # out put as png
+            from base64 import b64encode,b64decode
+            buffer64 = b64encode(bufferIMG.getvalue())
+
+            self.png(buffer64)
+        elif isinstance(data,pd.Series):
+            import matplotlib
+            #matplotlib.use('Agg')
+            import matplotlib.pyplot as plt
+            plt.figure()
+            plt.plot(data.index,data,label=data.name)
             plt.legend()
 
             bufferIMG = StringIO()
