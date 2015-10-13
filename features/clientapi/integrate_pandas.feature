@@ -2,6 +2,7 @@ Feature: Nadej can output pandas dataframe as plot or tables
     
     Scenario Outline: Simple pandas frame handling
         Given I load the client API
+        Given I use testResult folder
         Given I call h1 with parameter "Showing some pandas integration"
         Given I load a pandas frame from text csv in register df
         """
@@ -34,7 +35,7 @@ Feature: Nadej can output pandas dataframe as plot or tables
         Examples: Some outputs 
             | collectpipe                    | 
             | html                           | 
-            | html:save in lol2.html         |
+            | html:save in testResult/lol2.html         |
 
 
 
