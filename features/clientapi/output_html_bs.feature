@@ -1,6 +1,6 @@
 Feature: Nadej produce bootstrap formated pages
     
-    @work
+    @work @wo
     Scenario Outline: Produce html bootstraped 
         with multiple elements
         Given I load the client API
@@ -59,9 +59,9 @@ Feature: Nadej produce bootstrap formated pages
         Given I call text with 3 random sentences
         Given I call plot with register df
 
-        Given I call h2 with parameter "spliting page"
+        Given I call h2 with parameter "spliting page 3"
 
-        Given I call split with parameter "vsplit"
+        Given I call split with parameter "vsplit" and "3"
         Given I call text with 3 random sentences
         Given I call plot with register df
         Given I call then
@@ -77,14 +77,21 @@ Feature: Nadej produce bootstrap formated pages
         """
         Given I call split with parameter "end"
 
+        Given I call h2 with parameter "spliting page 2"
+        Given I call split with parameter "vsplit" and "2"
+        Given I call text with 4 random sentences
+        Given I call then
+        Given I call text with 3 random sentences
+        Given I call split with parameter "end"
 
         Given I call collect with parameter "<collectpipe>"
         Then the collect result is a unicode string
 
         Examples: Bootstrap html 
             | collectpipe                    | 
-            | html_bs:save in testResult/output_bs.html      | 
-            | html_bs_inline| 
+            #| html_bs:save in testResult/output_bs.html      | 
+            | html_bs:save in /var/www/html/testreport/nadejout_bs.html |
+            #| html_bs_inline| 
         
             
 

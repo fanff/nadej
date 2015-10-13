@@ -139,11 +139,14 @@ def htmlBootstrapFormater(dataList,inline=False):
     djson = json.dumps(dataList,indent=2,cls=JsonEscaper)
     
     title = u"No Title"
-
+    
+    # title is going to meta
     for elem in dataList:
         if elem["type"] == "title":
             title=elem["text"]
 
+        if elem["type"] == "title":
+            title=elem["text"]
 
     meta={
             "title":title,

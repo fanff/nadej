@@ -108,6 +108,11 @@ def step_impl(context,resultDic):
     context.nadej_collected = res
     assert resultDicPython == res
 
+@given(u'I call split with parameter "{someText}" and "{count:d}"')
+def step_impl(context,someText,count):
+    context.nadej.split(someText,count)
+
+
 @given(u'I call {method} with parameter "{someText}"')
 def step_impl(context,method,someText):
 

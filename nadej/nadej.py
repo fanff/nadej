@@ -11,9 +11,9 @@ def savein(data,dest):
 
     save data in html
     """
-    if os.path.isabs(dest) :
-        return
-    
+    if os.path.isabs(dest):
+        with open(dest,"w") as ou:
+            ou.write(data)
     
     if dest.endswith(".html"):
         with open(dest,"w") as ou:
@@ -120,7 +120,7 @@ class ClientAPI(object):
 
         else:
             raise Exception("not supported yet")
-    def split(self,act="1"):
+    def split(self,act="vsplit",count=1):
         """
         If act is 
 
@@ -131,7 +131,7 @@ class ClientAPI(object):
         
         if act == "vsplit":
             dic = {"type":"vsplit",
-                    "count":1}
+                    "count":count}
             self.dataList.append(dic)
             self.state.append(dic)
         elif act == "end":
