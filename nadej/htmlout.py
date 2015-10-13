@@ -145,9 +145,6 @@ def htmlBootstrapFormater(dataList,inline=False):
         if elem["type"] == "title":
             title=elem["text"]
 
-        if elem["type"] == "title":
-            title=elem["text"]
-
     meta={
             "title":title,
             "lead":u""

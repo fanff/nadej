@@ -21,10 +21,22 @@
 {% elif elem.type == 'vsplit' %}
 <div class="container">
 <div class="row">
+    {% if elem.count == 2 %}
+    <div class="col-md-6">
+    {% elif elem.count == 3 %}
     <div class="col-md-4">
+    {% elif elem.count == 4 %}
+    <div class="col-md-3">
+    {% endif %}
 {% elif elem.type == 'then' %}
     </div>
+    {% if elem.count == 2 %}
+    <div class="col-md-6">
+    {% elif elem.count == 3 %}
     <div class="col-md-4">
+    {% elif elem.count == 4 %}
+    <div class="col-md-3">
+    {% endif %}
 {% elif elem.type == 'endsplit' %}
     </div>
 </div><!-- /.row -->

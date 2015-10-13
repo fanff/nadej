@@ -89,9 +89,8 @@ Feature: Nadej produce bootstrap formated pages
 
         Examples: Bootstrap html 
             | collectpipe                    | 
-            #| html_bs:save in testResult/output_bs.html      | 
-            | html_bs:save in /var/www/html/testreport/nadejout_bs.html |
-            #| html_bs_inline| 
+            | html_bs:save in testResult/output_bs.html      | 
+            | html_bs_inline| 
         
             
 

@@ -149,10 +149,12 @@ class ClientAPI(object):
         """
         close the last opened element
         """
-        previousCount = self.state[-1]["count"]
-        self.state[-1]["count"] = previousCount+1
+        #previousCount = self.state[-1]["count"]
+        #newcount = previousCount+1
+        #self.state[-1]["count"] = newcount
+        count =self.state[-1]["count"] 
         
-        dic = {"type":"then",}
+        dic = {"type":"then","count":count}
         self.dataList.append(dic)
 
 
