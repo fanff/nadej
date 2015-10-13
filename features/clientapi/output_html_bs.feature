@@ -1,6 +1,5 @@
 Feature: Nadej produce bootstrap formated pages
     
-    @work @wo
     Scenario Outline: Produce html bootstraped 
         with multiple elements
         Given I load the client API
@@ -80,6 +79,18 @@ Feature: Nadej produce bootstrap formated pages
         Given I call h2 with parameter "spliting page 2"
         Given I call split with parameter "vsplit" and "2"
         Given I call text with 4 random sentences
+        Given I call then
+        Given I call text with 3 random sentences
+        Given I call split with parameter "end"
+
+
+        Given I call h2 with parameter "spliting page 4"
+        Given I call split with parameter "vsplit" and "4"
+        Given I call text with 4 random sentences
+        Given I call then
+        Given I call text with 3 random sentences
+        Given I call then
+        Given I call text with 3 random sentences
         Given I call then
         Given I call text with 3 random sentences
         Given I call split with parameter "end"
