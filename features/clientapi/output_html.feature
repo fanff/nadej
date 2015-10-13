@@ -3,6 +3,7 @@ Feature: Nadej produces simple html pages
     Scenario Outline: Produce html with multiple elements
         such as h1, h2, titles etc.. . Html can be written 
         on disk and be "raw" or "embbeded" in <html> fields.
+        Given I use testResult folder
         Given I load the client API
         Given I call title with parameter "Title string"
         Given I call h1 with parameter "Firt part"
@@ -34,12 +35,12 @@ Feature: Nadej produces simple html pages
         Examples: Embbeded html 
             | collectpipe                    | 
             | html                           | 
-            | html:save in lol2.html         | 
+            | html:save in testResult/lol2.html         | 
         
         Examples: Inline html 
             | collectpipe                    | 
             | htmlinline                     | 
-            | htmlinline:save in lol.html   | 
+            | htmlinline:save in testResult/lol.html   | 
             
 
 
