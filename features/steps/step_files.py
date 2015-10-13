@@ -1,6 +1,10 @@
 import os
 import subprocess
 
+@given(u'I use {foldername} folder')
+def step_impl(context,foldername):
+    if not os.path.exists(foldername):
+        os.mkdir(foldername)
 
 @then(u'The file "{filename}" exists')
 def step_impl(context,filename):

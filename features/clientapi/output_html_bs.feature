@@ -4,6 +4,7 @@ Feature: Nadej produce bootstrap formated pages
     Scenario Outline: Produce html bootstraped 
         with multiple elements
         Given I load the client API
+        Given I use testResult folder
         Given I call title with parameter "Title string"
         Given I call h1 with parameter "Showing some features"
         Given I call text with 7 random sentences
