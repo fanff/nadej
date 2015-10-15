@@ -207,7 +207,7 @@ def bootstrapSummary(dataList):
 
                 current = hi
             else :
-                for _ in range(current-h1):
+                for _ in range(current-hi):
                     l.append("</ul>")
 
     for _ in range(current):

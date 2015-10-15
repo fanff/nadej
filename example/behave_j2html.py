@@ -26,7 +26,8 @@ def feature(feat):
     
     for elem in feat["elements"]:
         elementMatcher(elem)
-    print feat.keys()
+    print "feature",feat.keys()
+
 def scenario(elem):
     nadej.h2(elem["name"])
     nadej.text(u"sc in %s"%elem["location"])
