@@ -130,10 +130,16 @@ class ClientAPI(object):
             import matplotlib
             #matplotlib.use('Agg')
             import matplotlib.pyplot as plt
-            plt.figure()
+            fig = plt.figure()
             for col in data:
                 plt.plot(data.index,data[col],label=col)
 
+            ymax,ymin = data.max().max(),data.min().min()
+            ampli = (ymax-ymin)*0.05
+            plt.ylim([ymin-ampli,ymax+ampli])
+
+            if isinstance(data.index,pd.DatetimeIndex):
+                fig.autofmt_xdate()
             plt.legend()
 
             bufferIMG = StringIO()
@@ -152,9 +158,7 @@ class ClientAPI(object):
             ax1 = plt.plot(data.index,data,label=data.name)
             
             ymax,ymin = data.max(),data.min()
-
             ampli = (ymax-ymin)*0.05
-
             plt.ylim([ymin-ampli,ymax+ampli])
             #ax1.set_ylim([-10,10])
             if isinstance(data.index,pd.DatetimeIndex):
