@@ -66,8 +66,11 @@
           <h1>{{meta.title}}</h1>
           <p class="lead">{{ meta.lead }}</p>
       </div>
-
+        
+      {% if meta.summary %}
       {{ summary }}
+
+      {% endif %}
       {{text}}
     </div><!-- /.container -->
     <div class="footer"> 
