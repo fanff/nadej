@@ -19,3 +19,11 @@ def step_impl(context,fileIN,fileOUT):
             ]
     res = subprocess.check_output(" ".join(callArray),shell=True)
 
+@given(u'I call "python example/full_featured.py {fileOUT}"')
+def step_impl(context,fileOUT):
+    
+    callArray=["python","example/full_featured.py",
+            fileOUT
+            ]
+    res = subprocess.check_output(" ".join(callArray),shell=True)
+

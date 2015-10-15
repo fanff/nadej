@@ -103,5 +103,8 @@ Feature: Nadej produce bootstrap formated pages
             | html_bs:save in testResult/output_bs.html      | 
             | html_bs_inline| 
         
-            
+    @wip    
+    Scenario: RunExamples
+        Given I call "python example/full_featured.py lol.html"
 
+        

@@ -35,6 +35,11 @@ class ClientAPI(object):
         dic = {"type":"title",
                 "text":text}
         self.dataList.append(dic)
+    def summary(self,text=""):
+        """
+        """
+        dic = {"type":"summary",
+                "text":text}
 
     def h1(self,text=""):
         """
@@ -119,7 +124,22 @@ class ClientAPI(object):
                "format":"png",
                "data":data}
         self.dataList.append(dic)
+    
+    def rst(self,text):
+        """
+        """
+        dic = {"type":"rst",
+               "text":text}
 
+        self.dataList.append(dic)
+    def logo(self,data,formt='png'):
+        """
+
+        """
+        dic = {"type":"logo",
+               "format":formt,
+               "data":data}
+        self.dataList.append(dic)
 
     def plot(self,data=""):
         """
@@ -199,6 +219,7 @@ class ClientAPI(object):
                     raise Exception("State Error")
             else:
                 raise Exception("State Error, should find something")
+    
 
     def then(self):
         """
@@ -211,7 +232,24 @@ class ClientAPI(object):
         
         dic = {"type":"then","count":count}
         self.dataList.append(dic)
+    
+    def test_s(self,text=u''):
+        """
+        test success
+        """
+        dic= {"type":"test_text",
+                "success": True,
+                "text":text}
+        self.dataList.append(dic)
 
+    def test_f(self,text=u''):
+        """
+        test success
+        """
+        dic= {"type":"test_text",
+                "success": False,
+                "text":text}
+        self.dataList.append(dic)
 
     def collect(self,outpipe=""):
         """

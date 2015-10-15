@@ -67,9 +67,8 @@
           <p class="lead">{{ meta.lead }}</p>
       </div>
 
-      {% for elem in d %}
-        {% include "bootstrapOut.html" with context %}   
-      {% endfor %}
+      {{ summary }}
+      {{text}}
     </div><!-- /.container -->
     <div class="footer"> 
     </div>
