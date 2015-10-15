@@ -147,8 +147,18 @@ class ClientAPI(object):
             import matplotlib
             #matplotlib.use('Agg')
             import matplotlib.pyplot as plt
-            plt.figure()
-            plt.plot(data.index,data,label=data.name)
+            fig = plt.figure()
+            plt.axis=('tight')
+            ax1 = plt.plot(data.index,data,label=data.name)
+            
+            ymax,ymin = data.max(),data.min()
+
+            ampli = (ymax-ymin)*0.05
+
+            plt.ylim([ymin-ampli,ymax+ampli])
+            #ax1.set_ylim([-10,10])
+            if isinstance(data.index,pd.DatetimeIndex):
+                fig.autofmt_xdate()
             plt.legend()
 
             bufferIMG = StringIO()
