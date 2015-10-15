@@ -82,10 +82,10 @@ class ClientAPI(object):
         self.dataList.append(dic)
 
     def json(self,text=""):
-        if isinstance(text,dict):
+        if isinstance(text,(dict,list)):
             dic = {"type":"code",
                 "format":"json",
-                "text":json.dumps(text)}
+                "text":json.dumps(text,indent=2)}
             self.dataList.append(dic)
 
         elif isinstance(text,basestring):
