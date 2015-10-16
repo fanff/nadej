@@ -153,11 +153,15 @@ class ClientAPI(object):
             import matplotlib.pyplot as plt
             fig = plt.figure()
             for col in data:
-                plt.plot(data.index,data[col],label=col)
+                plt.plot(data.index,data[col],marker="o",label=col,)
 
             ymax,ymin = data.max().max(),data.min().min()
             ampli = (ymax-ymin)*0.05
             plt.ylim([ymin-ampli,ymax+ampli])
+
+            xmax,xmin = data.index.max(),data.index.min()
+            ampli = (xmax-xmin)/10
+            plt.xlim([xmin-ampli,xmax+ampli])
 
             if isinstance(data.index,pd.DatetimeIndex):
                 fig.autofmt_xdate()
@@ -176,11 +180,16 @@ class ClientAPI(object):
             import matplotlib.pyplot as plt
             fig = plt.figure()
             plt.axis=('tight')
-            ax1 = plt.plot(data.index,data,label=data.name)
+            ax1 = plt.plot(data.index,data,marker="o",label=data.name)
             
             ymax,ymin = data.max(),data.min()
             ampli = (ymax-ymin)*0.05
             plt.ylim([ymin-ampli,ymax+ampli])
+            
+            xmax,xmin = data.index.max(),data.index.min()
+            ampli = (xmax-xmin)/10
+            plt.xlim([xmin-ampli,xmax+ampli])
+
             #ax1.set_ylim([-10,10])
             if isinstance(data.index,pd.DatetimeIndex):
                 fig.autofmt_xdate()
