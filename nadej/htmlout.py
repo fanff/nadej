@@ -68,7 +68,18 @@ def htmlFormat_h(elem):
         href= "#%s"%elem["uuid"] 
     else:
         href= "" 
-    return u"<%s id='%s'>%s</%s>"%(elem["type"],href,elem["text"],elem["type"])
+
+
+    return u"""
+    <%s>
+    <a href='%s'></a> 
+    %s
+    </%s>"""%(
+            elem["type"],
+            href,
+            elem["text"],
+            elem["type"]
+            )
 
 
 
@@ -128,7 +139,7 @@ def pdframetotable_bs(df):
     res["class"] = newclassset
     return soup.prettify()
 
-BOOTSTRAP_META_FILTER = ["title","logo","summary"]
+BOOTSTRAP_META_FILTER = ["title","logo","summary","lead"]
 
 
 def htmlBootstrapFormater(dataList,inline=False):
@@ -140,17 +151,20 @@ def htmlBootstrapFormater(dataList,inline=False):
     
     meta={
         "title":u"No Title",
-        "lead":u"",
+        "lead":True,
         "summary":False
     }
+    summary = u""
+    lead = u""
     # preprocessing meta 
     for elem in dataList:
         if elem["type"] == "title":
             meta["title"]=elem["text"]
         if elem["type"] == "summary":
             meta["summary"]=True
-
-    summary = bootstrapSummary(dataList)
+            summary = bootstrapSummary(dataList)
+        if elem["type"] == "lead":
+            lead = elem["text"]
     text= u"".join((bootstrapSwith(elem) for elem in dataList))
 
     if inline:
@@ -161,32 +175,47 @@ def htmlBootstrapFormater(dataList,inline=False):
         env=Environment(loader=PackageLoader('nadej','templates'))
         env.filters['pdframetotable'] = pdframetotable_bs
         template = env.get_template('bootstraped.html')
-        return template.render(d=dataList,djson=djson,meta=meta,text=text,summary=summary)
+        return template.render(d=dataList,
+                djson=djson,
+                meta=meta,
+                text=text,
+                lead=lead,
+                summary=summary)
 
 def bootstrapSummary(dataList):
     l = []
     current = 0
     
-    def makeli(elem):
+    def makeli(elem,hi):
         import uuid
         elem["uuid"] = uuid.uuid4().hex
         return u"""<li class="list-unstyled">
                 <a href="#%s">
-                %s
-                </a></li>"""%(
-                elem["uuid"]    ,
-                elem["text"]
+                
+                </a>
+                <h%s>%s</h%s>
+                
+                </li>"""%(
+                elem["uuid"] ,
+                hi +1,
+                elem["text"],
+                hi +1,
             
             )
 
-    def makeli2(elem):
+    def makeli2(elem,hi):
         import uuid
         elem["uuid"] = uuid.uuid4().hex
         return u"""<a href="#%s">
-                %s
-                </a></li>"""%(
-                elem["uuid"]    ,
-                elem["text"]
+                
+                </a>
+                <h%s>%s</h%s>
+                
+                </li>"""%(
+                elem["uuid"] ,
+                hi +1,
+                elem["text"],
+                hi +1,
             
             )
     
@@ -196,14 +225,14 @@ def bootstrapSummary(dataList):
             hi = int(elem["type"][-1])
 
             if hi == current:
-                l.append(makeli(elem))
+                l.append(makeli(elem,hi))
             elif hi > current:
                 # open new
 
                 for _ in range(hi-current):
                     l.append("<ul>")
                     l.append("""<li class="list-unstyled">""")
-                l.append(makeli2(elem))
+                l.append(makeli2(elem,hi))
 
                 current = hi
             else :
@@ -214,11 +243,8 @@ def bootstrapSummary(dataList):
         l.append("</ul>")
 
     tmp = u"""
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"></h3>
-        </div>
-        <div class="panel-body">
           %s
         </div>
     </div>

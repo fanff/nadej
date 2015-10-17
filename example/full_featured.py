@@ -24,8 +24,11 @@ n=nadej.nadej.ClientAPI()
 
 
 n.title("Full Featured Example")
+n.logo(img(400,400))
+n.lead(txt(4))
+n.summary("")
 
-n.summary("dklqfjlkfmdsjlsdfq")
+
 n.h1("Some basic features")
 
 n.text(txt(4))
@@ -66,10 +69,16 @@ n.rst("""
 n.split("end")
 
 
+n.h3("image ")
+
 n.png(img(800,300,))
 
+n.h4("Rst formated text")
+n.rst(txt(4))
+n.h4("Rst formated text")
+n.rst(txt(4))
 
-n.logo(img(400,400))
+n.h3("json ")
 
 n.json([1,2,4])
 

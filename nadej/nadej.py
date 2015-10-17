@@ -42,6 +42,15 @@ class ClientAPI(object):
         dic = {"type":"summary",
                 "text":text}
 
+        self.dataList.append(dic)
+    def lead(self,text=""):
+        """
+        below title
+        """
+        dic = {"type":"lead",
+                "text":text}
+
+        self.dataList.append(dic)
     def h1(self,text=""):
         """
         """
