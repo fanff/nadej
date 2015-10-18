@@ -162,9 +162,10 @@ def htmlBootstrapFormater(dataList,inline=False):
             meta["title"]=elem["text"]
         if elem["type"] == "summary":
             meta["summary"]=True
-            summary = bootstrapSummary(dataList)
+            summary = bootstrapSummary_temp(dataList,elem["shift"],elem["limit"])
         if elem["type"] == "lead":
             lead = elem["text"]
+    
     text= u"".join((bootstrapSwith(elem) for elem in dataList))
 
     if inline:
@@ -183,18 +184,13 @@ def htmlBootstrapFormater(dataList,inline=False):
                 summary=summary)
 
 def bootstrapSummary(dataList):
-    l = []
-    current = 0
     
     def makeli(elem,hi):
         import uuid
         elem["uuid"] = uuid.uuid4().hex
         return u"""<li class="list-unstyled">
-                <a href="#%s">
-                
-                </a>
+                <a href="#%s"></a>
                 <h%s>%s</h%s>
-                
                 </li>"""%(
                 elem["uuid"] ,
                 hi +1,
@@ -206,11 +202,8 @@ def bootstrapSummary(dataList):
     def makeli2(elem,hi):
         import uuid
         elem["uuid"] = uuid.uuid4().hex
-        return u"""<a href="#%s">
-                
-                </a>
+        return u"""<a href="#%s"></a>
                 <h%s>%s</h%s>
-                
                 </li>"""%(
                 elem["uuid"] ,
                 hi +1,
@@ -218,7 +211,8 @@ def bootstrapSummary(dataList):
                 hi +1,
             
             )
-    
+    l = []
+    current = 0
     for elem in dataList:
         if elem["type"] in ["h1","h2","h3","h4"]:
 
@@ -230,21 +224,49 @@ def bootstrapSummary(dataList):
                 # open new
 
                 for _ in range(hi-current):
-                    l.append("<ul>")
+                    l.append("""
+                    <ul class="for h%s">
+                            """%(_+current+1))
                     l.append("""<li class="list-unstyled">""")
                 l.append(makeli2(elem,hi))
 
                 current = hi
             else :
-                for _ in range(current-hi):
-                    l.append("</ul>")
+                for _ in range(current-hi-1):
+                    l.append("""</ul><!-- closing h%s -->
+                            """%(current-_))
 
-    for _ in range(current):
-        l.append("</ul>")
+    for _ in range(current-1):
+        l.append("</ul %s>"%_)
 
     tmp = u"""
     <div class="panel panel-default">
         <div class="panel-heading">
+          %s
+        </div>
+    </div>
+     """ 
+
+    return tmp%( u"".join(l))
+
+
+def bootstrapSummary_temp(dataList,shift=1,limit=4):
+    l=[] 
+    for elem in dataList:
+        if elem["type"] in ["h1","h2","h3","h4"]:
+
+            hi = int(elem["type"][-1])
+            if hi <= limit:
+
+                ht = u"""<h%s>%s</h%s>"""%(
+                hi +shift,
+                elem["text"],
+                hi +shift)
+                
+                l.append(ht)
+
+    tmp = u"""
+    <div class="panel panel-default"><div class="panel-heading">
           %s
         </div>
     </div>

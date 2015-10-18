@@ -36,11 +36,13 @@ class ClientAPI(object):
         dic = {"type":"title",
                 "text":text}
         self.dataList.append(dic)
-    def summary(self,text=""):
+    def summary(self,text="",shift=2,limit=3):
         """
         """
         dic = {"type":"summary",
-                "text":text}
+                "text":text,
+                "shift":shift,
+                "limit":limit}
 
         self.dataList.append(dic)
     def lead(self,text=""):
