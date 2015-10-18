@@ -160,7 +160,7 @@ class ClientAPI(object):
 
         if isinstance(data,pd.DataFrame):
             import matplotlib
-            #matplotlib.use('Agg')
+            matplotlib.use('Agg')
             import matplotlib.pyplot as plt
             fig = plt.figure()
             for col in data:
@@ -187,7 +187,7 @@ class ClientAPI(object):
             self.png(buffer64)
         elif isinstance(data,pd.Series):
             import matplotlib
-            #matplotlib.use('Agg')
+            matplotlib.use('Agg')
             import matplotlib.pyplot as plt
             fig = plt.figure()
             plt.axis=('tight')
