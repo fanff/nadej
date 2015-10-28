@@ -163,8 +163,10 @@ class ClientAPI(object):
             matplotlib.use('Agg')
             import matplotlib.pyplot as plt
             fig = plt.figure()
+
+            ax = fig.add_subplot(111)
             for col in data:
-                plt.plot(data.index,data[col],marker="o",label=col,)
+                ax.plot(data.index,data[col],marker="o",label=col,)
 
             ymax,ymin = data.max().max(),data.min().min()
             ampli = (ymax-ymin)*0.05
@@ -176,10 +178,12 @@ class ClientAPI(object):
 
             if isinstance(data.index,pd.DatetimeIndex):
                 fig.autofmt_xdate()
-            plt.legend()
+            handles, labels = ax.get_legend_handles_labels()
 
+
+            lgd = ax.legend(handles,labels,bbox_to_anchor=(1.01, 1.), loc=2,)
             bufferIMG = StringIO()
-            plt.savefig(bufferIMG)
+            plt.savefig(bufferIMG,bbox_extra_artists=(lgd,),bbox_inches='tight')
             # out put as png
             from base64 import b64encode,b64decode
             buffer64 = b64encode(bufferIMG.getvalue())

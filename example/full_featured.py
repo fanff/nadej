@@ -82,4 +82,14 @@ n.h3("json ")
 
 n.json([1,2,4])
 
+import pandas as pd
+import numpy as np
+df = pd.DataFrame(np.random.randn(100, 5),
+        columns=['adfq', 'bqvq', 'cfdqs', 'dfdsq', 'e'])
+
+n.plot(df)
+
+
+
+
 n.collect("html_bs:save in lol.html")
