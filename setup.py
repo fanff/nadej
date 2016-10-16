@@ -78,7 +78,9 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-            
+            "docutils",
+            "jinja2",
+
             ],
 
     # List additional groups of dependencies here (e.g. development
