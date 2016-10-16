@@ -24,7 +24,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.11',
+    version='0.0.12',
 
     description='Document generator',
     long_description='Document generator',
@@ -80,7 +80,7 @@ setup(
     install_requires=[
             "docutils",
             "jinja2",
-
+            "beautifulsoup4",
             ],
 
     # List additional groups of dependencies here (e.g. development
