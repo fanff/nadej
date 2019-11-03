@@ -10,7 +10,7 @@
     "grunt-contrib-concat": ""
   },
   "dependencies": {
-    "bootstrap": "~3.3.5",
+    "bootstrap": "~3.4.1",
     "bootstrap-table": "~1.8.1"
   }
 }
